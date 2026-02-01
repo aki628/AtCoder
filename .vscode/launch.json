@@ -6,7 +6,14 @@
       "type": "lldb",
       "request": "launch",
       "program": "${workspaceFolder}/build/bin/read_seq_ch",
-      "preLaunchTask": "build read_seq_ch",
+      "cwd": "${workspaceFolder}",
+      "stopOnEntry": false
+    },
+    {
+      "name": "Launch count_ij (CodeLLDB)",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/bin/count_ij",
       "cwd": "${workspaceFolder}",
       "stopOnEntry": false
     }

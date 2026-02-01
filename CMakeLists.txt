@@ -12,6 +12,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 # Add executable for day1/read_seq_ch
 add_executable(read_seq_ch day1/read_seq_ch.cpp)
+add_executable(count_ij day1/count_ij.cpp)
 
 # Compiler flags for Unix-like compilers
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
