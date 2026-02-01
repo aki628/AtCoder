@@ -1,0 +1,40 @@
+# macOS
+.DS_Store
+
+# Build directories and binaries
+/build/
+/bin/
+*.exe
+*.out
+*.o
+*.obj
+*.so
+*.a
+*.dylib
+*.dSYM/
+
+# CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+install_manifest.txt
+
+# Temporary / editor files
+*~
+*.swp
+*.swo
+*.tmp
+*.log
+
+# IDE/editor settings
+.idea/
+*.iml
+
+# VS Code workspace storage (keep .vscode settings committed if desired)
+.vscode/*.code-workspace
+.vscode/*.db
+.vscode/.history/
+
+# Misc
+tags

@@ -1,0 +1,13 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build read_seq_ch",
+      "type": "shell",
+      "command": "g++ -std=c++17 day1/read_seq_ch.cpp -g -O0 -o day1/read_seq_ch",
+      "group": {"kind": "build","isDefault": true},
+      "problemMatcher": ["$gcc"],
+      "detail": "Compile read_seq_ch for debugging"
+    }
+  ]
+}

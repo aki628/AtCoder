@@ -1,0 +1,36 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch read_seq_ch (CodeLLDB)",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceFolder}/day1/read_seq_ch",
+      "preLaunchTask": "build read_seq_ch",
+      "args": [],
+      "cwd": "${workspaceFolder}",
+      "stopOnEntry": false,
+      "terminal": "integrated"
+    },
+    {
+      "name": "Launch read_seq_ch (cpptools)",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/day1/read_seq_ch",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "lldb",
+      "miDebuggerPath": "/usr/bin/lldb",
+      "setupCommands": [
+        {
+          "description": "Set lldb pretty printer settings",
+          "text": "settings set target.max-children-count 256",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}
