@@ -16,6 +16,14 @@
       "program": "${workspaceFolder}/build/bin/count_ij",
       "cwd": "${workspaceFolder}",
       "stopOnEntry": false
+    },
+    {
+      "name": "Launch music_payer (CodeLLDB)",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/bin/music_payer",
+      "cwd": "${workspaceFolder}",
+      "stopOnEntry": false
     }
   ]
 }
