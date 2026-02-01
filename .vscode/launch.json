@@ -21,7 +21,7 @@
       "name": "Launch music_payer (CodeLLDB)",
       "type": "lldb",
       "request": "launch",
-      "program": "${workspaceFolder}/build/bin/music_payer",
+      "program": "${workspaceFolder}/build/bin/music_player",
       "cwd": "${workspaceFolder}",
       "stopOnEntry": false
     }

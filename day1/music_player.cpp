@@ -1,13 +1,12 @@
-// day1/music_player.cpp
-// 説明: 先頭に整数 N があり、その後に N 個の整数を読み込んで空白区切りで出力する練習用プログラムです。
-// 各行に学習用コメントを付けています。
-
- // 個別ヘッダを明示的に include して使用箇所をコメントしています。
- // どのヘッダがどこで使われているかを明示することで、IDE のエラーを避けやすくします。
- #include <iostream> // cin, cout を使用
- #include <vector>   // std::vector を使用
- #include <cstddef>  // size_t を使用
- // 注意: <bits/stdc++.h> は便利だが非標準なので、明示的なヘッダを推奨します。
+ // day1/music_player.cpp
+ // 説明: N 個の操作を読み取り、音楽の再生状態と音量を更新して最終判定を出力する簡易シミュレータです。
+ // 以下にこのファイルで使っている標準ヘッダとその利用箇所を明示します。
+ //
+ // 使用ヘッダと用途（このファイル内での利用箇所）
+ // - <iostream> : 標準入力 std::cin と標準出力 std::cout を使用（入力の読み取り・結果出力）
+ // ※ このファイルでは他の標準コンテナ（std::vector 等）やアルゴリズムは使用していません。
+ #
+ #include <iostream> // std::cin, std::cout を使用
 
 using namespace std; // std:: を毎回書かずに済むようにする（学習用に簡潔化）
 
@@ -21,30 +20,29 @@ int main() {
     // 入力が失敗したら（例えば EOF）プログラムを終了する
     if (!(cin >> N)) return 0;
 
-    // 読み込む値を格納するコンテナ
-    // vector は <bits/stdc++.h> により読み込まれる <vector> を利用している
-    vector<long long> v;
-    // reserve は予めメモリを確保して push_back の再割当を減らすメソッド
-    // static_cast でサイズ型に変換しているのは型の警告を避けるため
-    v.reserve(N > 0 ? static_cast<size_t>(N) : 0);
+    bool music_on = false; // 音楽の再生状態を表すフラグ（初期値は停止状態）
+    long long sound_volume = 0; // 音量レベルを表す変数（初期値は0）
 
     // N 回整数を読み込むループ
     // long long x: 読み込む個々の整数を受け取る変数
     for (long long i = 0; i < N; ++i) {
         long long x;
         // 標準入力から整数を読み込む（cin は <iostream> による）
-        cin >> x;
-        // 読み取った値を vector に追加する（push_back は <vector> のメソッド）
-        v.push_back(x);
+        if (!(cin >> x)) break; // 入力不足やエラー時はループを抜ける
+        // 入力値に応じて状態を更新する（この実装では配列に格納せず直接処理する）
+        if (x == 3) {
+            music_on = !music_on; // トグル動作で音楽の再生/停止を切り替え
+        } else if (x == 1) {
+            sound_volume++; // 音楽が再生中なら音量を1上げる
+        } else if (x == 2 && sound_volume > 0) {
+            sound_volume--; // 音楽が再生中で音量が0より大きければ1下げる
+        }
     }
 
-    // 読み込んだ整数を空白区切りで出力する
-    // i が 0 でなければ前に空白を入れることで末尾に余分な空白を入れない
-    for (size_t i = 0; i < v.size(); ++i) {
-        if (i) cout << ' '; // cout は <iostream> による
-        cout << v[i];       // vector から値を取り出して出力
+    if (music_on && sound_volume > 2) {
+        cout << "Yes" << '\n';
+    } else {
+        cout << "No" << '\n';
     }
-    cout << '\n'; // 最後に改行を出力
-
     return 0; // 正常終了
 }
