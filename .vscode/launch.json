@@ -5,10 +5,9 @@
       "name": "Launch read_seq_ch (CodeLLDB)",
       "type": "lldb",
       "request": "launch",
-      "program": "/Users/akinobusasada/workspace/AtCoder/build/bin/read_seq_ch",
+      "program": "${workspaceFolder}/build/bin/read_seq_ch",
       "preLaunchTask": "build read_seq_ch",
       "cwd": "${workspaceFolder}",
-      "terminal": "integratedTerminal",
       "stopOnEntry": false
     }
   ]

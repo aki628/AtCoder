@@ -5,6 +5,7 @@
       "label": "build read_seq_ch",
       "type": "shell",
       "command": "mkdir -p build/bin && g++ -std=c++17 day1/read_seq_ch.cpp -g -O0 -o build/bin/read_seq_ch",
+      "cwd": "${workspaceFolder}",
       "group": {"kind": "build","isDefault": true},
       "problemMatcher": ["$gcc"],
       "detail": "Compile read_seq_ch for debugging"
