@@ -29,19 +29,6 @@ vector<long long> update_pieces(vector<long long>& pieces, long long left_ind) {
     return new_pieces;
 }
 
-vector<long long> create_pieces_length(vector<long long>& lengths) {
-    vector<long long> vec(lengths.size());
-    for (size_t i = 0; i < lengths.size(); ++i) {
-        if (i == 0) {
-            vec[i] = lengths[i];
-            continue;
-        }
-        else {
-            vec[i] = lengths[i] - lengths[i - 1];
-        }
-    }
-    return vec;
-}
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
@@ -51,24 +38,33 @@ int main() {
     if (!(cin >> K)) return 0;
 
     vector<long long> A(N);
+    long long previous = 0;
+    long long current = 0;
     for (int i = 0; i < N; ++i) {
         if (i == 0) {
-            if (!(cin >> A[i])) return 0;
+            if (!(cin >> current)) return 0;
+            A[i] = current;
+            previous = current;
         }
         else if (i > 0 && i == N - 1) {
-            long long last;
-            if (!(cin >> last)) return 0;
-            A[i] = L - last;
+            if (!(cin >> current)) return 0;
+            A[i] = L - current;
         }
         else {
-            if (!(cin >> A[i])) return 0;
+            if (!(cin >> current)) return 0;
+            A[i] = current - previous;
+            previous = current;
         }
     }
-    for (int i = 0; i < N-K; ++i) {
-        if (i == N - K - 1) {
-            cout << merge_tow_piece(A).second << "\n";
+    for (int i = 0; i < N-K-1; ++i) {
+        if (i == N - K - 2) {
+            long long score = 0;
+            score = merge_tow_piece(A).second;
+            cout << score << "\n";
         }
-        A = update_pieces(A, merge_tow_piece(A).first);
+        else{
+            A = update_pieces(A, merge_tow_piece(A).first);
+        }
     }
 
     return 0;

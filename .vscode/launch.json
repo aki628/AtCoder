@@ -5,25 +5,50 @@
       "name": "Launch read_seq_ch (CodeLLDB)",
       "type": "lldb",
       "request": "launch",
-      "program": "${workspaceFolder}/build/bin/read_seq_ch",
+      "program": "${workspaceFolder}/build/bin/day1/read_seq_ch",
+      "args": [],
       "cwd": "${workspaceFolder}",
-      "stopOnEntry": false
+      "stopOnEntry": false,
+      "externalConsole": false
     },
     {
       "name": "Launch count_ij (CodeLLDB)",
       "type": "lldb",
       "request": "launch",
-      "program": "${workspaceFolder}/build/bin/count_ij",
+      "program": "${workspaceFolder}/build/bin/day1/count_ij",
+      "args": [],
       "cwd": "${workspaceFolder}",
-      "stopOnEntry": false
+      "stopOnEntry": false,
+      "externalConsole": false
     },
     {
-      "name": "Launch music_payer (CodeLLDB)",
+      "name": "Launch music_player (CodeLLDB)",
       "type": "lldb",
       "request": "launch",
-      "program": "${workspaceFolder}/build/bin/music_player",
+      "program": "${workspaceFolder}/build/bin/day1/music_player",
+      "args": [],
       "cwd": "${workspaceFolder}",
-      "stopOnEntry": false
+      "stopOnEntry": false,
+      "externalConsole": false
+    },
+    {
+      "name": "Launch Yokan_Party (GDB)",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/bin/day2/Yokan_Party",
+      "args": [],
+      "cwd": "${workspaceFolder}",
+      "stopAtEntry": false,
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty printing",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
     }
   ]
 }
