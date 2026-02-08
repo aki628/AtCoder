@@ -12,7 +12,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 # Add day1 as subdirectory
 add_subdirectory(day1)
-# add_subdirectory(day2) # add more days as needed
+add_subdirectory(day2)
 
 # Common compiler flags for Unix-like compilers and MSVC
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
