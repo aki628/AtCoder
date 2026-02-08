@@ -10,20 +10,15 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
-# Add executable for day1/read_seq_ch
-add_executable(read_seq_ch day1/read_seq_ch.cpp)
-add_executable(count_ij day1/count_ij.cpp)
-add_executable(music_player day1/music_player.cpp)
+# Add day1 as subdirectory
+add_subdirectory(day1)
+# add_subdirectory(day2) # add more days as needed
 
-# Compiler flags for Unix-like compilers
+# Common compiler flags for Unix-like compilers and MSVC
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
-  target_compile_options(read_seq_ch PRIVATE -g -O0 -Wall -Wextra -Wpedantic)
-  target_compile_options(count_ij PRIVATE -g -O0 -Wall -Wextra -Wpedantic)
-  target_compile_options(music_player PRIVATE -g -O0 -Wall -Wextra -Wpedantic)
+  add_compile_options(-g -O0 -Wall -Wextra -Wpedantic)
 elseif(MSVC)
-  target_compile_options(read_seq_ch PRIVATE /Zi /Od /W4)
-  target_compile_options(count_ij PRIVATE /Zi /Od /W4)
-  target_compile_options(music_player PRIVATE /Zi /Od /W4)
+  add_compile_options(/Zi /Od /W4)
 endif()
 
 # Optionally allow the user to specify an output name or install rules later
